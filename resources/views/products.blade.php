@@ -37,6 +37,7 @@
                 <tr>
                     <th>#</th>
                     <th>Product Name</th>
+                    <th>Category</th>
                     <th>Price</th>
                     <th>Stock</th>
                     <th>Action</th>
@@ -45,8 +46,9 @@
             <tbody>
                 @foreach($products as $product)
                   <tr>
-                    <td>{{$loop->iteration}}</td>
+                  <td>{{$loop->iteration}}</td>
                   <td>{{$product->product_name}}</td>
+                  <td>{{ $product->category->name }}</td> <!-- mengakses ke table category dan attributenya -->
                   <td>{{$product->price}}</td>
                   <td>{{$product->stock}}</td>
                     <td>
