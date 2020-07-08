@@ -31,12 +31,18 @@
         </div>
       </nav>
     <div class="container mt-5" style="width: 33%;">
+    
         <form class="mb-4" action="/store" method="POST">
             @csrf
             <h1 class="text-center mb-4">Create Product</h1>
             <div class="form-group">
                 <label for="">Product Name</label>
-                <input type="text" class="form-control" name="product_name">
+                <input type="text" class="form-control" @error('product_name')
+                    is-invalid
+                @enderror name="product_name">
+                @error('product_name')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
               <label for="">Product Category</label>
